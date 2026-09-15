@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reciba clientes de extranjería en exclusiva por zona | ArraigoValencia</title>
+<meta name="description" content="Alquile en exclusiva los leads de extranjería de una localidad de la provincia de Valencia. Sin coste de desarrollo, sin permanencia larga.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --bg:#14100d; --bg-2:#1c1611; --bg-3:#241c16;
+  --cream:#f1e9d8; --cream-2:#ddcfb4; --cream-3:#93856f;
+  --accent:#8a2f3b; --accent-2:#6f2530; --gold:#c9a961; --gold-soft:rgba(201,169,97,.18);
+  --line:rgba(241,233,216,.12); --ok:#7fae7a; --taken:#93856f;
+  --serif:"Cormorant Garamond",Georgia,serif; --sans:"Inter",-apple-system,"Segoe UI",sans-serif;
+  --ease:cubic-bezier(.16,1,.3,1); --nav-h:72px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0}
+html{overflow-x:hidden}
+body{background:var(--bg);color:var(--cream);font-family:var(--sans);line-height:1.6}
+a{color:var(--gold)}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.15}
+.container{max-width:980px;margin-inline:auto;padding-inline:1.4rem}
+.nav{position:fixed;top:0;inset-inline:0;z-index:500;height:var(--nav-h);display:flex;align-items:center;background:rgba(20,16,13,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav-inner{max-width:1080px;margin-inline:auto;padding-inline:1.4rem;display:flex;align-items:center;justify-content:space-between;width:100%}
+.nav-brand{font-family:var(--serif);font-size:1.2rem;color:var(--cream)}
+.nav-brand em{color:var(--gold);font-style:italic}
+.nav-cta{font-size:.85rem;color:var(--cream-2)}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:.9rem 1.6rem;border-radius:6px;font-weight:600;font-size:.95rem;transition:transform .3s var(--ease),background .3s var(--ease)}
+.btn-primary{background:var(--accent);color:var(--cream)}
+.btn-primary:hover{background:var(--accent-2);transform:translateY(-2px)}
+.eyebrow{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.hero{padding-top:calc(var(--nav-h) + 3rem);padding-bottom:2.5rem}
+.hero h1{font-size:clamp(2rem,4.5vw,3rem);max-width:20ch;margin-top:.6rem}
+.hero h1 em{color:var(--gold);font-style:italic}
+.hero p.lead{margin-top:1.2rem;font-size:1.08rem;color:var(--cream-2);max-width:56ch}
+.section{padding-block:clamp(2.5rem,5vw,4rem)}
+.section-head{max-width:640px;margin-bottom:2rem}
+.section-head h2{font-size:clamp(1.5rem,3vw,2rem);margin-top:.5rem}
+.section-head p{color:var(--cream-2);margin-top:.7rem}
+.how-grid{display:grid;gap:1.2rem}
+@media(min-width:720px){.how-grid{grid-template-columns:repeat(3,1fr)}}
+.how-step{background:var(--bg-3);border:1px solid var(--line);border-radius:14px;padding:1.5rem}
+.how-n{font-family:var(--serif);font-size:1.8rem;color:var(--gold);opacity:.6}
+.how-step h3{font-size:1.05rem;margin-top:.4rem}
+.how-step p{color:var(--cream-2);font-size:.92rem;margin-top:.5rem}
+table.zonas{width:100%;border-collapse:collapse;margin-top:.5rem}
+table.zonas th,table.zonas td{text-align:left;padding:.9rem .8rem;border-bottom:1px solid var(--line)}
+table.zonas th{color:var(--cream-3);font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;font-weight:600}
+table.zonas td{color:var(--cream-2)}
+table.zonas td.zona-name{color:var(--cream);font-weight:600;font-family:var(--serif);font-size:1.05rem}
+.badge{display:inline-flex;padding:.25rem .7rem;border-radius:100px;font-size:.76rem;font-weight:600}
+.badge-available{background:rgba(127,174,122,.18);color:var(--ok)}
+.badge-taken{background:rgba(147,133,111,.25);color:var(--cream-3)}
+.tiers{display:grid;gap:1.2rem;margin-top:1rem}
+@media(min-width:720px){.tiers{grid-template-columns:repeat(2,1fr)}}
+.tier{background:var(--bg-3);border:1px solid var(--line);border-radius:16px;padding:1.8rem}
+.tier h3{font-size:1.2rem}
+.tier .price{font-family:var(--serif);font-size:2rem;color:var(--gold);margin-top:.6rem}
+.tier .price span{font-size:.95rem;color:var(--cream-3);font-family:var(--sans)}
+.tier ul{color:var(--cream-2);margin-top:1rem;padding-left:1.2rem;font-size:.92rem}
+.tier li{margin-top:.4rem}
+.faq-list{max-width:760px}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-item summary{cursor:pointer;padding:1.1rem 0;font-family:var(--serif);font-size:1.05rem;list-style:none}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item .faq-a{padding-bottom:1.1rem;color:var(--cream-2);max-width:62ch}
+.contact-box{background:var(--bg-3);border:1px solid var(--line);border-radius:16px;padding:2rem}
+.form-field{margin-bottom:1rem}
+.form-field label{display:block;font-size:.83rem;color:var(--cream-2);margin-bottom:.4rem}
+.form-field input,.form-field select,.form-field textarea{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:.8rem 1rem;color:var(--cream);font:inherit}
+.form-field input:focus,.form-field select:focus,.form-field textarea:focus{outline:none;border-color:var(--gold)}
+.form-status{display:none;margin-top:.9rem;color:var(--ok);font-size:.88rem}
+.form-status.is-visible{display:block}
+footer{border-top:1px solid var(--line);padding-block:2rem;text-align:center;color:var(--cream-3);font-size:.8rem}
+footer a{color:var(--gold);text-decoration:underline}
+</style>
+</head>
+<body>
+<nav class="nav"><div class="nav-inner">
+  <a class="nav-brand" href="index.html">Arraigo<em>Valencia</em></a>
+  <span class="nav-cta">Página para despachos profesionales</span>
+</div></nav>
+
+<main>
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow">Para despachos de abogados</p>
+      <h1>Reciba en exclusiva los clientes de extranjería de <em>su zona</em></h1>
+      <p class="lead">ArraigoValencia es un sitio de orientación sobre extranjería que ya está construido y en marcha para posicionarse en Google en Valencia y su provincia. En vez de competir con todos los despachos por el mismo tráfico, le asignamos en exclusiva las consultas de una localidad concreta — sin coste de desarrollo, sin permanencia larga.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Cómo funciona</p>
+        <h2>Tres cosas que hacemos por usted</h2>
+      </div>
+      <div class="how-grid">
+        <div class="how-step"><div class="how-n">01</div><h3>Posicionamos el sitio</h3><p>Contenido específico y verificado por trámite y por localidad — no plantillas genéricas con el nombre cambiado.</p></div>
+        <div class="how-step"><div class="how-n">02</div><h3>Filtramos las consultas</h3><p>El formulario recoge la situación de cada persona antes de que llegue a usted, y queda etiquetado por localidad de origen.</p></div>
+        <div class="how-step"><div class="how-n">03</div><h3>Le enviamos los leads de su zona</h3><p>Solo recibe las consultas de la localidad que haya contratado en exclusiva — nadie más de nuestra red recibe esas mismas consultas.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="border-top:1px solid var(--line)">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Zonas</p>
+        <h2>Disponibilidad actual por localidad</h2>
+        <p>Cada zona se asigna a un único despacho en exclusiva — una vez ocupada, no se ofrece a nadie más mientras dure el contrato.</p>
+      </div>
+      <table class="zonas">
+        <tr><th>Localidad</th><th>Tráfico estimado</th><th>Disponibilidad</th></tr>
+        <tr><td class="zona-name">Valencia capital</td><td>Alto — mucha competencia ya posicionada</td><td><span class="badge badge-available">Disponible</span></td></tr>
+        <tr><td class="zona-name">Torrent</td><td>Medio — competencia moderada</td><td><span class="badge badge-available">Disponible</span></td></tr>
+        <tr><td class="zona-name">Gandía</td><td>Medio — competencia moderada</td><td><span class="badge badge-available">Disponible</span></td></tr>
+        <tr><td class="zona-name">Sagunto</td><td>Medio-bajo — poca competencia de especialistas</td><td><span class="badge badge-available">Disponible</span></td></tr>
+      </table>
+      <p style="margin-top:1rem;font-size:.85rem;color:var(--cream-3)">El sitio es de reciente creación — el tráfico real de cada zona se comparte con transparencia antes de firmar nada, no prometemos cifras que aún no podemos demostrar.</p>
+    </div>
+  </section>
+
+  <section class="section" style="border-top:1px solid var(--line);background:var(--bg-2)">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Condiciones</p>
+        <h2>Dos formas de empezar</h2>
+      </div>
+      <div class="tiers">
+        <div class="tier">
+          <h3>Exclusividad de zona</h3>
+          <div class="price">Cuota mensual <span>/ zona</span></div>
+          <ul>
+            <li>Recibe todas las consultas etiquetadas de esa localidad, sin compartirlas con nadie.</li>
+            <li>Sin coste de desarrollo ni de diseño — el sitio ya existe.</li>
+            <li>Sin permanencia larga: puede darse de baja de una zona con un aviso previo.</li>
+            <li>Precio orientativo a definir según el volumen real de la zona una vez arrancado el sitio.</li>
+          </ul>
+        </div>
+        <div class="tier">
+          <h3>Pago por lead</h3>
+          <div class="price">Por consulta recibida</div>
+          <ul>
+            <li>Sin cuota fija — paga solo por cada consulta real que le enviemos.</li>
+            <li>Ideal para probar antes de comprometerse a una zona en exclusiva.</li>
+            <li>Compatible con pasar más adelante a exclusividad de zona.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="border-top:1px solid var(--line)">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Preguntas frecuentes</p>
+        <h2>Antes de escribirnos</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item" open>
+          <summary>¿Puedo contratar más de una zona?</summary>
+          <div class="faq-a">Sí. Muchos despachos empiezan por una localidad y amplían según los resultados.</div>
+        </details>
+        <details class="faq-item">
+          <summary>¿Qué pasa si dos despachos quieren la misma zona?</summary>
+          <div class="faq-a">Cada zona es exclusiva de un único despacho. Se asigna por orden de contratación; si su zona de interés ya está ocupada, le avisamos en cuanto quede libre.</div>
+        </details>
+        <details class="faq-item">
+          <summary>¿Puedo ver el sitio antes de decidir?</summary>
+          <div class="faq-a">Por supuesto — visite <a href="index.html">la página principal</a> y las guías de cada trámite y localidad.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contacto-despacho" style="border-top:1px solid var(--line);background:var(--bg-2)">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Contacto</p>
+        <h2>Reserve su zona</h2>
+      </div>
+      <div class="contact-box">
+        <form data-despacho-form novalidate>
+          <div class="form-field"><label for="d-name">Nombre del despacho</label><input id="d-name" name="despacho" type="text" required></div>
+          <div class="form-field"><label for="d-contact">Persona de contacto</label><input id="d-contact" name="name" type="text" required></div>
+          <div class="form-field"><label for="d-email">Email</label><input id="d-email" name="email" type="email" required></div>
+          <div class="form-field"><label for="d-phone">Teléfono</label><input id="d-phone" name="phone" type="tel" required></div>
+          <div class="form-field">
+            <label for="d-zona">Zona de interés</label>
+            <select id="d-zona" name="zona">
+              <option>Valencia capital</option>
+              <option>Torrent</option>
+              <option>Gandía</option>
+              <option>Sagunto</option>
+              <option>Varias / no lo tengo claro todavía</option>
+            </select>
+          </div>
+          <input type="hidden" name="_subject" value="Nueva solicitud de despacho — ArraigoValencia">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="origen" value="despacho-inquiry">
+          <button class="btn btn-primary" type="submit" style="width:100%">Solicitar información</button>
+          <p class="form-status" data-form-status>Recibido, gracias — le contactaremos en menos de 24 horas.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">© <span id="y"></span> ArraigoValencia — Servicio de orientación e intermediación en extranjería. <a href="aviso-legal.html">Aviso legal</a></div>
+</footer>
+<script>
+document.getElementById('y').textContent = new Date().getFullYear();
+const form = document.querySelector('[data-despacho-form]');
+if (form) {
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    if (!form.reportValidity()) return;
+    const btn = form.querySelector('button[type="submit"]');
+    btn.disabled = true; btn.textContent = 'Enviando…';
+    try {
+      const res = await fetch('https://formsubmit.co/ajax/pardo.juan.antonio@gmail.com', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form)
+      });
+      if (!res.ok) throw new Error('bad response');
+      document.querySelector('[data-form-status]').classList.add('is-visible');
+      form.reset();
+    } catch (_) {
+      alert('No se ha podido enviar. Escríbenos a pardo.juan.antonio@gmail.com');
+    } finally {
+      btn.disabled = false; btn.textContent = 'Solicitar información';
+    }
+  });
+}
+</script>
+</body>
+</html>
