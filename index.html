@@ -212,12 +212,15 @@ footer{border-top:1px solid var(--line);padding-block:2rem}
       </div>
       <div>
         <form data-contact-form novalidate>
-          <div class="form-field"><label for="f-name">Nombre</label><input id="f-name" type="text" required></div>
-          <div class="form-field"><label for="f-phone">Teléfono o WhatsApp</label><input id="f-phone" type="tel" required></div>
-          <div class="form-field"><label for="f-msg">Cuéntanos brevemente tu situación</label><textarea id="f-msg" rows="4"></textarea></div>
+          <div class="form-field"><label for="f-name">Nombre</label><input id="f-name" name="name" type="text" required></div>
+          <div class="form-field"><label for="f-phone">Teléfono o WhatsApp</label><input id="f-phone" name="phone" type="tel" required></div>
+          <div class="form-field"><label for="f-msg">Cuéntanos brevemente tu situación</label><textarea id="f-msg" name="message" rows="4"></textarea></div>
+          <input type="hidden" name="_subject" value="Nuevo lead — ArraigoValencia">
+          <input type="hidden" name="_captcha" value="false">
           <label style="display:flex;gap:.5rem;font-size:.8rem;color:var(--cream-3);margin-bottom:1rem"><input type="checkbox" required style="margin-top:.2rem"><span>Acepto que se usen estos datos para responder a mi consulta, según la <a href="aviso-legal.html" style="color:var(--gold)">política de privacidad</a>.</span></label>
           <button class="btn btn-primary" type="submit" style="width:100%;justify-content:center">Enviar</button>
           <p class="form-status" data-form-status>Recibido, gracias — te contactaremos en menos de 24 horas.</p>
+          <p class="form-status" data-form-error style="color:#e08a8a">No se ha podido enviar. Escríbenos directamente a <a href="mailto:pardo.juan.antonio@gmail.com" style="color:var(--gold)">pardo.juan.antonio@gmail.com</a>.</p>
         </form>
       </div>
     </div>
@@ -236,11 +239,28 @@ document.getElementById('f-year') // noop
 document.querySelectorAll('[data-year]').forEach(el=>el.textContent=new Date().getFullYear());
 const form = document.querySelector('[data-contact-form]');
 if(form){
-  form.addEventListener('submit', e=>{
+  form.addEventListener('submit', async e=>{
     e.preventDefault();
     if(!form.reportValidity()) return;
-    document.querySelector('[data-form-status]').classList.add('is-visible');
-    form.reset();
+    const btn = form.querySelector('button[type="submit"]');
+    const ok = document.querySelector('[data-form-status]');
+    const err = document.querySelector('[data-form-error]');
+    ok.classList.remove('is-visible'); err.classList.remove('is-visible');
+    btn.disabled = true; btn.textContent = 'Enviando…';
+    try {
+      const res = await fetch('https://formsubmit.co/ajax/pardo.juan.antonio@gmail.com', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form)
+      });
+      if (!res.ok) throw new Error('bad response');
+      ok.classList.add('is-visible');
+      form.reset();
+    } catch (_) {
+      err.classList.add('is-visible');
+    } finally {
+      btn.disabled = false; btn.textContent = 'Enviar';
+    }
   });
 }
 </script>
